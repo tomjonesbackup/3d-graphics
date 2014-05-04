@@ -1,11 +1,10 @@
 package com.twj.gfx;
 
-import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class Main {
 
@@ -15,7 +14,8 @@ public class Main {
 		
 		world.setLightPosition(new Vector4d(0, 0, -6000, 1));
 
-		BufferedImage texture = ImageIO.read(new File("/home/tomjones/Documents/java-projects/3d-graphics/src/main/resources/random.bmp"));
+        InputStream is = Main.class.getClassLoader().getResourceAsStream("random.bmp");
+		BufferedImage texture = ImageIO.read(is);
 
 		final int COUNT = 11;
 		final int EDGE_LENGTH = 256;
